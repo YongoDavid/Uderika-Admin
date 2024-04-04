@@ -1,0 +1,27 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: aliceblue;
+}
+
+#Heading h1 , h4{
+    margin-top: 20px;
+    text-align: center;
+    justify-content: center;
+}
+
+table{
+    background-color: white;
+    margin: 20px auto auto auto;
+    width: 90vw;
+}
+table , tr , td , th{
+    text-align: center;
+    padding: 20px;
+    border: 1px solid black ;
+    border-collapse: collapse;
+}
