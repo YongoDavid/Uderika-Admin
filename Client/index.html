@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Page</title>
-    <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </head>
 <body>
     <header id="Heading">
@@ -13,34 +15,45 @@
         <!-- <h4>All Email</h4> -->
     </header>
 
-    <main>
-        <table id="Admin-Table">
+   <table class="table table-hover">
+        <thead>
             <tr>
-                <th>S/N</th>
-                <th>Emails</th>
+                <th>
+                    ID
+                </th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>DiscountPercentage</th>
+                <th>Rating</th>
+                <th>Stock</th>
+                <th>Brand</th>
+                <th>Category</th>
+                <th>Thumbnail</th>
             </tr>
-            <tr class="row">
-                <td class="One">1</td>
-                <td class="Two">Davidyongo@gmail.com</td>
-            </tr>
-            <tr class="row">
-                <td class="One">2</td>
-                <td class="Two">Davidyongo@gmail.com</td>
-            </tr>
-            <tr class="row">
-                <td class="One">3</td>
-                <td class="Two">Davidyongo@gmail.com</td>
-            </tr>
-            <tr class="row">
-                <td class="One">4</td>
-                <td class="Two">Davidyongo@gmail.com</td>
-            </tr>
-            <tr class="row">
-                <td class="One">5</td>
-                <td class="Two">Davidyongo@gmail.com</td>
-            </tr>
-        </table>
-    </main>
+        </thead>
+        <tbody id="tableRows">
+
+        </tbody>
+   </table>
 </body>
-    <script></script>
+    <script src="admin.js"></script>
+    <script>
+        // make sure to check network tab in DC to see the status of this api 
+        fetch("https://dummyjson.com/products")
+        // .then(res => console.log(result))
+        // pass in response as json format  
+        .then(response => reponse.json())
+        .then(res => {
+            const data = res.products;
+            let rows = '';
+            data.forEach(product => {
+                // insert json object detials  
+                rows += `<tr><td>${product.id}</td></tr><td>${product.title}</td><td>${product.description}</td><td>${product.price}</td><td>${product.discountPercentage}</td><td>${product.rating}</td><td>${product.stock}</td><td>${product.brand}</td><td>${product.category}</td><td>${product.thumbnail}</td>`
+            })
+            // pass in new data into the HTML content
+            document.getElementById("TableRow").innerHTML = rows;
+        })
+        .catch(error => console.log(error))
+    </script>
 </html>
