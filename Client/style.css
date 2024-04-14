@@ -13,15 +13,3 @@ body{
     text-align: center;
     justify-content: center;
 }
-
-table{
-    background-color: white;
-    margin: 20px auto auto auto;
-    width: 90vw;
-}
-table , tr , td , th{
-    text-align: center;
-    padding: 20px;
-    border: 1px solid black ;
-    border-collapse: collapse;
-}
