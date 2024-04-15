@@ -11,9 +11,50 @@
 <body>
     <header id="Heading">
         <h1>Uderika Admin</h1>
+
         <!-- <h4>All Email</h4> -->
     </header>
-    
+
+        <div class="container">
+            <table class="table table-striped table-bordered">
+                <thead class="table-dark">
+                  <tr>
+                    <th scope="col">Title</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Image</th>
+                  </tr>
+                </thead>
+                <tbody id="table_body">
+                  <tr>
+                    <td>name</td>
+                    <td>Mark</td>
+                    <td>Mark</td>
+                    <td>Mark</td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
 </body>
     <script src="admin.js"></script>
+    <!-- <script>
+        // make sure to check network tab in DC to see the status of this api 
+        fetch("https://fakestoreapi.com/docs")
+        // .then(res => console.log(result))
+        // pass in response as json format  
+        .then(response => reponse.json())
+        .then(res => {
+            const data = res.products;
+            let rows = '';
+            data.forEach(product => {
+                // insert json object detials  
+                rows += `<tr><td>${product.id}</td></tr><td>${product.title}</td><td>${product.description}</td><td>${product.price}</td><td>${product.discountPercentage}</td><td>${product.rating}</td><td>${product.stock}</td><td>${product.brand}</td><td>${product.category}</td><td>${product.thumbnail}</td>`
+            })
+            // pass in new data into the HTML content
+            document.getElementById("TableRow").innerHTML = rows;
+        })
+        .catch(error => console.log(error))
+    </script> -->
+
+
 </html>
