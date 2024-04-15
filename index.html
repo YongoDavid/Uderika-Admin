@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email List</title>
+</head>
+<body> 
+    <ul id="emailList"></ul>
+</body>
+<script>
+    fetch('https://uderika-server.onrender.com/emails')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json(); // Parse JSON response
+        })
+        .then(emails => {
+            console.log('Emails received:', emails);
+            const emailList = document.getElementById('emailList');
+            if (emails.length === 0) {
+                console.warn('No emails found in response');
+            } else {
+                emails.forEach(email => {
+                    const li = document.createElement('li');
+                    li.textContent = email;
+                    emailList.appendChild(li);
+                });
+            }
+        })
+        .catch(error => console.error('Error fetching or parsing emails:', error));
+</script> 
+</html>
