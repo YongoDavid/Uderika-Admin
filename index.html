@@ -16,6 +16,8 @@
             height: 100vh;
         }
         h1{
+            text-align: center;
+            justify-content: center;
             font-size: 35px;
             font-weight: 500;
             font-family: "Montserrat", sans-serif;
@@ -48,14 +50,14 @@
 </head>
 <body> 
     <h1>Uderika Emails</h1>
-    <table id="emailTable">
+    <table id="emailTable" >
         <thead>
             <tr>
                 <th>Email</th>
                 <th>Action</th>
             </tr>
         </thead>
-        <tbody id="emailList"></tbody>
+        <tbody id="emailList" class="table table-striped"></tbody>
     </table>
 </body>
 <script>
