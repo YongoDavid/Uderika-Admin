@@ -21,24 +21,42 @@
             font-family: "Montserrat", sans-serif;
             line-height: 50px;
         }
-        ul li {
-            margin-left: 20px;
-            margin-right: 20px;
-            font-size: 26px;
-            line-height: 2em;
-            font-weight: 300;
-            font-family: "Montagu Slab", serif;
+        table {
+            width: 100%;
+            border-collapse: collapse;
         }
-        h1 {
-            padding: 20px;
-            justify-content: center;
-            text-align: center;
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .delete-btn {
+            background-color: #ff4d4d;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .delete-btn:hover {
+            background-color: #cc0000;
         }
     </style>
 </head>
 <body> 
-    <h1>Uderika Email</h1>
-    <ul id="emailList"></ul>
+    <h1>Uderika Emails</h1>
+    <table id="emailTable">
+        <thead>
+            <tr>
+                <th>Email</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="emailList"></tbody>
+    </table>
 </body>
 <script>
     fetch('https://uderika-server.onrender.com/emails')
@@ -55,9 +73,21 @@
                 console.warn('No emails found in response');
             } else {
                 emails.forEach(email => {
-                    const li = document.createElement('li');
-                    li.textContent = email;
-                    emailList.appendChild(li);
+                    const tr = document.createElement('tr');
+                    const tdEmail = document.createElement('td');
+                    tdEmail.textContent = email;
+                    const tdAction = document.createElement('td');
+                    const deleteBtn = document.createElement('button');
+                    deleteBtn.textContent = 'Delete';
+                    deleteBtn.className = 'delete-btn';
+                    deleteBtn.addEventListener('click', () => {
+                        // Handle delete action here
+                        tr.remove(); // Remove the row from the table
+                    });
+                    tdAction.appendChild(deleteBtn);
+                    tr.appendChild(tdEmail);
+                    tr.appendChild(tdAction);
+                    emailList.appendChild(tr);
                 });
             }
         })
