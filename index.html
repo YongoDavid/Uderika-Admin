@@ -56,6 +56,7 @@
             <tr>
                 <th>Select</th>
                 <th>Email</th>
+                <th>Date</th>
             </tr>
         </thead>
         <tbody id="emailList"></tbody>
@@ -84,9 +85,12 @@
                     checkbox.type = 'checkbox';
                     tdSelect.appendChild(checkbox);
                     const tdEmail = document.createElement('td');
-                    tdEmail.textContent = email;
+                    tdEmail.textContent = email.email; // Update here
+                    const tdDate = document.createElement('td');
+                    tdDate.textContent = email.date; // Update here
                     tr.appendChild(tdSelect);
                     tr.appendChild(tdEmail);
+                    tr.appendChild(tdDate);
                     emailList.appendChild(tr);
                 });
             }
