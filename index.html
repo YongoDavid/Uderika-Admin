@@ -85,10 +85,9 @@
                     checkbox.type = 'checkbox';
                     tdSelect.appendChild(checkbox);
                     const tdEmail = document.createElement('td');
-                    tdEmail.textContent = email;
-                    // here is for the date 
+                    tdEmail.textContent = email.email;
                     const tdDate = document.createElement('td');
-                    tdDate.textContent = email.Date; // Update here
+                    tdDate.textContent = email.date;
                     tr.appendChild(tdSelect);
                     tr.appendChild(tdEmail);
                     tr.appendChild(tdDate);
