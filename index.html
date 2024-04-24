@@ -89,7 +89,7 @@
                     // here is for the date 
                     const tdDate = document.createElement('td');
                     // tdDate.textContent = email.date; // Update here
-                    tdDate.textContent = new Date(email.date * 1000).toLocaleString(); // Convert timestamp to date
+                    tdDate.textContent = new Date(email.timestamp).toLocaleString(); // Convert timestamp to date
                     tr.appendChild(tdSelect);
                     tr.appendChild(tdEmail);
                     tr.appendChild(tdDate);
