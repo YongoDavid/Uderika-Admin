@@ -79,22 +79,21 @@
                 console.warn('No emails found in response');
             } else {
                 emails.forEach(email => {
-                    const tr = document.createElement('tr');
-                    const tdSelect = document.createElement('td');
-                    const checkbox = document.createElement('input');
-                    checkbox.type = 'checkbox';
-                    tdSelect.appendChild(checkbox);
-                    const tdEmail = document.createElement('td');
-                    tdEmail.textContent = email.email;
-                    // here is for the date 
-                    const tdDate = document.createElement('td');
-                    tdDate.textContent = email.date; // Update here
-                    tr.appendChild(tdSelect);
-                    tr.appendChild(tdEmail);
-                    tr.appendChild(tdDate);
-                    emailList.appendChild(tr);
-                });
-            }
+                const tr = document.createElement('tr');
+                const tdSelect = document.createElement('td');
+                const checkbox = document.createElement('input');
+                checkbox.type = 'checkbox';
+                tdSelect.appendChild(checkbox);
+                const tdEmail = document.createElement('td');
+                tdEmail.textContent = email.email;
+                const tdDate = document.createElement('td'); // Create a separate <td> for the date
+                tdDate.textContent = email.date; // Update here for the date
+                tr.appendChild(tdSelect);
+                tr.appendChild(tdEmail);
+                tr.appendChild(tdDate); // Append the date <td> to the <tr>
+                emailList.appendChild(tr);
+            });
+            }   
         })
         .catch(error => console.error('Error fetching or parsing emails:', error));
 
