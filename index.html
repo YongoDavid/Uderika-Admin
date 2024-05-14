@@ -68,7 +68,7 @@
     <button id="copyAll" class="copy-btn">Copy All</button>
 </body>
 <script>
-    fetch("https://uderika-server.onrender.com/email")
+    fetch("https://uderika-server.onrender.com/api/emails")
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
