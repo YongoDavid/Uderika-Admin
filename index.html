@@ -75,9 +75,9 @@
             return response.json();
         })
         .then(emails => {
-            console.log('Emails received:', email);
+            console.log('Emails received:', emails);
             const emailList = document.getElementById('emailList');
-            if (email.length === 0) {
+            if (emails.length === 0) {
                 console.warn('No emails found in response');
             } else {
                 email.forEach(email => {
