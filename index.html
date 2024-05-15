@@ -75,12 +75,12 @@
             return response.json(); // Parse JSON response
         })
         .then(emails => {
-            console.log('Emails received:', emails);
+            console.log('Emails received:', email);
             const emailList = document.getElementById('emailList');
-            if (emails.length === 0) {
+            if (email.length === 0) {
                 console.warn('No emails found in response');
             } else {
-                emails.forEach(email => {
+                email.forEach(email => {
                 const tr = document.createElement('tr');
                 const tdSelect = document.createElement('td');
                 const checkbox = document.createElement('input');
