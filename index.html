@@ -72,7 +72,7 @@
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
-            return response.json(); // Parse JSON response
+            return response.json();
         })
         .then(emails => {
             console.log('Emails received:', email);
@@ -92,7 +92,6 @@
                 tdDate.textContent = email.date; // Update here for the date
                 tr.appendChild(tdSelect);
                 tr.appendChild(tdEmail);
-                // tr.appendChild(tdDate); // Append the date <td> to the <tr>
                 emailList.appendChild(tr);
             });
             }   
