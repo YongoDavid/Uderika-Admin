@@ -59,7 +59,7 @@
             <tr>
                 <th>Select</th>
                 <th>Email</th>
-                <th>Date</th>
+                <!-- <th>Date</th> -->
             </tr>
         </thead>
         <tbody id="emailList"></tbody>
@@ -89,9 +89,9 @@
                         tdSelect.appendChild(checkbox);
                         const tdEmail = document.createElement('td');
                         tdEmail.textContent = email.email;
-                        tdDate.textContent = new Date(email.timestamp).toLocaleString();
+                        // tdDate.textContent = new Date(email.timestamp).toLocaleString();
                         tr.appendChild(tdSelect);
-                        tr.appendChild(tdEmail);
+                        // tr.appendChild(tdEmail);
                         tr.appendChild(tdEmail);
                         emailList.appendChild(tr);
                     });
