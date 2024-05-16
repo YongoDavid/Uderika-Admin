@@ -89,6 +89,7 @@
                         tdSelect.appendChild(checkbox);
                         const tdEmail = document.createElement('td');
                         tdEmail.textContent = email.email;
+                        const tdDate = document.createElement('td');
                         tdDate.textContent = new Date(email.timestamp).toLocaleString();
                         tr.appendChild(tdSelect);
                         tr.appendChild(tdEmail);
